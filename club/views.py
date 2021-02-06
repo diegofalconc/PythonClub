@@ -10,6 +10,6 @@ def resources(request):
     resource_list = Resource.objects.all()
     return render(request, 'club/resources.html', {'resource_list': resource_list})
 
-def resourceDetail(request, id):
-    resource = get_object_or_404(Resource, pk=id)
-    return render(request, 'club/resourcedetail.html', {'resource' : resource})
+def meeting(request, id):
+    meeting = get_object_or_404(Meeting, pk=id)
+    return render(request, 'club/meeting.html', {'meeting' : meeting})
