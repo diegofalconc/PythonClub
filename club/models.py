@@ -19,10 +19,10 @@ class Meeting(models.Model):
 class MeetingMinutes(models.Model):
     meetingId = models.ForeignKey(Meeting, on_delete = models.DO_NOTHING)
     attendance = models.ManyToManyField(User)
-    minutes = models.DecimalField(max_digits = 6, decimal_places = 2)
+    minutes = models.CharField(max_length=255)
 
-def __str__(self):
-    return self.meetingId 
+    def __str__(self):
+        return self.minutes 
 
     class Meta:
         db_table = 'meetingminutes'
