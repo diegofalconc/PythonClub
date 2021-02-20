@@ -6,12 +6,12 @@ from django.contrib.auth.models import User
 class Meeting(models.Model):
     meetingtitle = models.CharField(max_length=255)
     meetingdate = models.DateField()
-    meetingtime = models.DecimalField(max_digits = '6', decimal_places = 2)
+    meetingtime = models.DecimalField(max_digits = 6, decimal_places = 2)
     location = models.CharField(max_length=255)
     agenda = models.TextField()
  
     def __str__(self):
-        return self.meetingtile 
+        return self.meetingtitle 
 
     class Meta:
         db_table='meeting'
@@ -19,7 +19,7 @@ class Meeting(models.Model):
 class MeetingMinutes(models.Model):
     meetingId = models.ForeignKey(Meeting, on_delete = models.DO_NOTHING)
     attendance = models.ManyToManyField(User)
-    minutes = models.DecimalField(max_digits = '6', decimal_places = 2)
+    minutes = models.DecimalField(max_digits = 6, decimal_places = 2)
 
 def __str__(self):
     return self.meetingId 
@@ -45,7 +45,7 @@ class Event(models.Model):
     eventtitle = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     dateentered = models.DateField()
-    time = models.DecimalField(max_digits = '6', decimal_places = 2)
+    time = models.DecimalField(max_digits = 6, decimal_places = 2)
     description = models.TextField()
     userid = models.ForeignKey(User, on_delete = models.DO_NOTHING)
 

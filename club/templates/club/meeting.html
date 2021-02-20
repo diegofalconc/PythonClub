@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 <h2>Meeting Detail</h2>
 <p>
-    Meeting Name : {{meeting.meetingname}}<br/> Meeting Type : {{meeting.meetingtype}}<br/> Meeting Price : {{meeting.price}} <br/> Meeting URL : {{meeting.meetingurl}} <br/> Meeting Description : {{ meeting.description}} </p>
+    {% for m in meeting_list %}
+    <li><a href="{% url 'detail' id=m.id %}"> {{ m.meetingtitle }}</a></li>
+    {% endfor %}
 </p>
 
 {% endblock %}
